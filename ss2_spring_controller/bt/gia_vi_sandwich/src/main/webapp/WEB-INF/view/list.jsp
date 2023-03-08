@@ -18,7 +18,7 @@
   <input type="checkbox" name="condiment" value="Lettuce">
   <label>Tomato</label>
   <input type="checkbox" name="condiment" value="Tomato">
-  <label>Mustard</label>
+  <label>Mustard</label> q
   <input type="checkbox" name="condiment" value="Mustard">
   <label>Sprouts</label>
   <input type="checkbox" name="condiment" value="Sprouts">
