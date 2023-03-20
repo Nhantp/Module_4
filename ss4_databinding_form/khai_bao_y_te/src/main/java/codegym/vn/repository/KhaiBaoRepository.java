@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@Repository
+@Repository
 public class KhaiBaoRepository implements IKhaiBaoRepository {
     private List<KhaiBao> khaiBaoList = new ArrayList<>();
 

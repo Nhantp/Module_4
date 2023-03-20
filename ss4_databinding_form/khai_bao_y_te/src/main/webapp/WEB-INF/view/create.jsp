@@ -14,7 +14,7 @@
 </style>
 <body>
 <h1>Tờ Khai Y Tế</h1>
-<form:form action="khaiBao/create" method="post" modelAttribute="khaiBao">
+<form:form action="/khaiBao/create" method="post" modelAttribute="khaiBao">
     <table>
         <tr>
             <th><form:label path="ten"/>Họ Tên (ghi chữ IN HOA)</th

@@ -3,6 +3,7 @@ package codegym.vn.controller;
 import codegym.vn.model.KhaiBao;
 import codegym.vn.repository.IKhaiBaoRepository;
 import codegym.vn.repository.KhaiBaoRepository;
+import codegym.vn.service.IKhaiBaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("khaiBao")
+@RequestMapping("/khaiBao")
 public class KhaiBaoController {
 
-    private IKhaiBaoRepository iKhaiBaoRepository=new KhaiBaoRepository();
-
-//    @Autowired
-//    public KhaiBaoController(IKhaiBaoRepository iKhaiBaoRepository) {
-//        this.iKhaiBaoRepository = iKhaiBaoRepository;
-//    }
+    private IKhaiBaoService iKhaiBaoRepository;
+    @Autowired
+    public KhaiBaoController(IKhaiBaoService iKhaiBaoRepository) {
+        this.iKhaiBaoRepository = iKhaiBaoRepository;
+    }
 
     @GetMapping("/create")
     public String showCreate(Model model) {
@@ -34,17 +34,17 @@ public class KhaiBaoController {
         model.addAttribute("quocTich", quocTich);
         model.addAttribute("thongTinDiLai",thongTinDiLai);
         model.addAttribute("yKien",yKien);
-        return "create";
+        return "/create";
     }
     @PostMapping("/create")
     public String doCreate(@ModelAttribute(name = "khaiBao") KhaiBao khaiBao){
         iKhaiBaoRepository.create(khaiBao);
         return "redirect:/khaiBao/list";
     }
-    @GetMapping(value = "/list")
+    @GetMapping( "/list")
     public String display(Model model){
         model.addAttribute("khaiBao",iKhaiBaoRepository.findAll());
-        return "list";
+        return "/list";
     }
 
 }
