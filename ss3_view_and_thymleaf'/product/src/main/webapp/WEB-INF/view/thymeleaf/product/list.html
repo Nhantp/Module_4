@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Display Product</title>
 </head>
 <body>
+<h1>Display Product</h1>
 <table border="1">
   <tr>
     <th>ID</th>
@@ -12,12 +13,20 @@
     <th>Price</th>
     <th>Describe</th>
     <th>Producer</th>
+    <th>Action</th>
   </tr>
-  <tr th:each="pr, ${product}" th:object="${pr}">
-    <td th:text="*{id}"></td>
-    <td th:text="*{name}"></td>
-    <td th:text="*{address}"></td>
+  <tr th:each="pr: ${product}">
+    <td th:text="${pr.id}"></td>
+    <td th:text="${pr.name}"></td>
+    <td th:text="${pr.price}"></td>
+    <td th:text="${pr.describe}"></td>
+    <td th:text="${pr.producer}"></td>
+    <td><a th:href="@{/product/{id}/delete(id=${pr.id})}">Delete</a>
+   <a th:href="@{/product/{id}/update(id=${pr.id})}">Update</a>
+    <a th:href="@{/product/{id}/check(id=${pr.id})}">Check</a>
+    </td>
   </tr>
 </table>
+
 </body>
 </html>

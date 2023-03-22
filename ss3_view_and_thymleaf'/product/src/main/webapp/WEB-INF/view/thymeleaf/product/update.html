@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Create Product</h1>
-<form th:action="@{/product/create}" method="post" th:object="${product}">
+<form th:action="@{/product/update}" method="post" th:object="${product}">
   <table>
     <tr>
       <td>ID</td>
@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td><input type="reset" value="Reset"></td>
-      <td><input type="submit" value="Register"></td>
+      <td><input type="submit" value="Edit"></td>
     </tr>
   </table>
 </form>

@@ -1,9 +1,9 @@
 package codegym.vn.config;
 
-import codegym.vn.repository.StudentRepository;
-import codegym.vn.repository.StudentRepositoryImpl;
-import codegym.vn.service.StudentService;
-import codegym.vn.service.StudentServiceImpl;
+import codegym.vn.repository.ProductRepository;
+import codegym.vn.repository.ProductRepositoryImpl;
+import codegym.vn.service.ProductService;
+import codegym.vn.service.ProductServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -12,10 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring5.ISpringTemplateEngine;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -77,14 +75,14 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         return messageSource;
     }
 //    @Bean
-//    public StudentRepository getStudentRepository() {
-//        return new StudentRepositoryImpl();
+//    public ProductRepository getProductRepository() {
+//        return new ProductRepositoryImpl();
 //    }
 //
 //    @Bean
-//    public StudentService getStudentService() {
-//        StudentServiceImpl service = new StudentServiceImpl();
-//        service.setStudentRepository(this.applicationContext.getBean(StudentRepository.class));
+//    public ProductService getProductService() {
+//        ProductServiceImpl service = new ProductServiceImpl();
+//        service.setProductRepository(this.applicationContext.getBean(ProductRepository.class));
 //        return service;
 //    }
 }
