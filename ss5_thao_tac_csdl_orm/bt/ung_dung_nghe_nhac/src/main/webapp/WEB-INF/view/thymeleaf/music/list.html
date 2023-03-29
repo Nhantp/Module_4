@@ -2,28 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Display Product</title>
+    <title>Display Music</title>
 </head>
 <body>
 <h1>Display Product</h1>
 <table border="1">
   <tr>
-    <th>ID</th>
     <th>Name</th>
-    <th>Price</th>
-    <th>Describe</th>
-    <th>Producer</th>
+    <th>Singer</th>
+    <th>Category</th>
+    <th>File</th>
     <th>Action</th>
   </tr>
-  <tr th:each="pr: ${product}">
-    <td th:text="${pr.id}"></td>
-    <td th:text="${pr.name}"></td>
-    <td th:text="${pr.price}"></td>
-    <td th:text="${pr.describe}"></td>
-    <td th:text="${pr.producer}"></td>
-    <td><a th:href="@{/product/{id}/delete(id=${pr.id})}">Delete</a>
-   <a th:href="@{/product/{id}/update(id=${pr.id})}">Update</a>
-    <a th:href="@{/product/{id}/check(id=${pr.id})}">Check</a>
+  <tr th:each="m: ${music}">
+    <td th:text="${m.name}"></td>
+    <td th:text="${m.singer}"></td>
+    <td th:text="${m.category}"></td>
+    <td th:text="${m.file}"></td>
+    <td><a th:href="@{/music/delete/{id}(id=${m.id})}">Delete</a>
     </td>
   </tr>
 </table>
