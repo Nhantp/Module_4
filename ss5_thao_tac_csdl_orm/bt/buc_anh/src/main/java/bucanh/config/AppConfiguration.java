@@ -1,4 +1,4 @@
-package nghenhac.config;
+package bucanh.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,7 +31,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("nghenhac")
+@ComponentScan("bucanh")
 @EnableTransactionManagement
 public class AppConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
@@ -91,7 +91,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public DriverManagerDataSource getDataSource() {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
-        datasource.setUrl("jdbc:mysql://localhost:3306/nghe_nhac?user=root");
+        datasource.setUrl("jdbc:mysql://localhost:3306/image?user=root");
         datasource.setUsername("root");
         datasource.setPassword("12345");
         return datasource;
@@ -110,7 +110,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(getDataSource());
-        entityManagerFactory.setPackagesToScan(new String[]{"nghenhac.entity"});
+        entityManagerFactory.setPackagesToScan(new String[]{"bucanh.entity"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactory.setJpaVendorAdapter(vendorAdapter);

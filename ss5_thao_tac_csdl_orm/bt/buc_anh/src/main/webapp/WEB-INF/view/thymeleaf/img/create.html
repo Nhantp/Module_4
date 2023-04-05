@@ -2,27 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create Music</title>
+    <title>Create Image</title>
 </head>
 <body>
-<h1>Create Product</h1>
-<form th:action="@{/music/create}" method="post" th:object="${music}">
+<h1>Create Image</h1>
+<form th:action="@{/image/create}" method="post" th:object="${image}" modelAttribute="">
   <table>
     <tr>
-      <td>Name</td>
-      <td><input type="text" th:field="*{name}"></td>
+      <td>Start</td>
+      <td><input type="text" th:field="*{start}"></td>
     </tr>
     <tr>
-      <td>Singer</td>
-      <td><input type="text" th:field="*{singer}"></td>
+      <td>Author</td>
+      <td><input type="text" th:field="*{author}"></td>
     </tr>
     <tr>
-      <td>Category</td>
-      <td><input type="text" th:field="*{category}"></td>
+      <td>Feedback</td>
+      <td><input type="text" th:field="*{feedback}"></td>
     </tr>
     <tr>
-      <td>File</td>
-      <td><input type="text" th:field="*{file}"></td>
+      <td>Like</td>
+      <td><input type="text" th:field="*{likes}"></td>
     </tr>
     <tr>
       <td><input type="reset" value="Reset"></td>
