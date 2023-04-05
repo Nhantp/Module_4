@@ -10,25 +10,22 @@ public class Blog {
     private int id;
     private String title;
     private String content;
-    private Date Time;
+    private String time;
     private String image;
-    private String category;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryId",referencedColumnName = "categoryId")
+    private Category category;
 
-    public Blog(String title, String content, Date time, String image, String category) {
+    public Blog(int id, String title, String content, String time, String image, Category category) {
+        this.id = id;
         this.title = title;
         this.content = content;
-        Time = time;
+        this.time = time;
         this.image = image;
         this.category = category;
     }
 
-    public Blog(int id, String title, String content, Date time, String image, String category) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        Time = time;
-        this.image = image;
-        this.category = category;
+    public Blog() {
     }
 
     public int getId() {
@@ -37,9 +34,6 @@ public class Blog {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Blog() {
     }
 
     public String getTitle() {
@@ -58,12 +52,12 @@ public class Blog {
         this.content = content;
     }
 
-    public Date getTime() {
-        return Time;
+    public String getTime() {
+        return time;
     }
 
-    public void setTime(Date time) {
-        Time = time;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getImage() {
@@ -74,11 +68,11 @@ public class Blog {
         this.image = image;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }

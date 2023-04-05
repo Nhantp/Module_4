@@ -29,4 +29,9 @@ public class BlogService implements IBlogService{
     public void update(Blog blog) {
         iBlogRepository.update(blog);
     }
+
+    @Override
+    public void delete(Blog blog) {
+        iBlogRepository.delete(blog );
+    }
 }

@@ -9,4 +9,5 @@ public interface IBlogService {
     List<Blog> findAll();
     Blog findById(int id);
     void update(Blog blog);
+    void delete(Blog blog);
 }

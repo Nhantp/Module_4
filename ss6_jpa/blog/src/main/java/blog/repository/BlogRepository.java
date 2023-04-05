@@ -14,8 +14,6 @@ import java.util.List;
 public class BlogRepository implements IBlogRepository{
     @PersistenceContext
     private EntityManager entityManager;
-    @Autowired
-    IBlogRepository iBlogRepository;
     @Override
     public void addNew(Blog blog) {
         entityManager.persist(blog);
@@ -34,5 +32,10 @@ public class BlogRepository implements IBlogRepository{
     @Override
     public void update(Blog blog) {
         entityManager.merge(blog);
+    }
+
+    @Override
+    public void delete(Blog blog) {
+        entityManager.remove(entityManager.merge(blog));
     }
 }
