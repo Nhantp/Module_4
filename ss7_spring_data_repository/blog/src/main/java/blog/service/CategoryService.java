@@ -10,9 +10,10 @@ import java.util.List;
 public class CategoryService implements ICategoryService{
     @Autowired
     ICategoryRepository iCategoryRepository;
+
     @Override
     public void addNew(Category category) {
-        iCategoryRepository.addNew(category);
+        iCategoryRepository.save(category);
     }
 
     @Override
@@ -27,11 +28,11 @@ public class CategoryService implements ICategoryService{
 
     @Override
     public Category findById(int id) {
-        return iCategoryRepository.findById(id);
+        return iCategoryRepository.findById(id).orElse(null);
     }
 
     @Override
     public void update(Category category) {
-        iCategoryRepository.update(category);
+        iCategoryRepository.save(category);
     }
 }

@@ -10,9 +10,10 @@ import java.util.List;
 public class BlogService implements IBlogService{
     @Autowired
     IBlogRepository iBlogRepository;
+
     @Override
     public void addNew(Blog blog) {
-        iBlogRepository.addNew(blog);
+        iBlogRepository.save(blog);
     }
 
     @Override
@@ -22,16 +23,16 @@ public class BlogService implements IBlogService{
 
     @Override
     public Blog findById(int id) {
-        return iBlogRepository.findById(id);
+        return iBlogRepository.findById(id).orElse(null);
     }
 
     @Override
     public void update(Blog blog) {
-        iBlogRepository.update(blog);
+        iBlogRepository.save(blog);
     }
 
     @Override
     public void delete(Blog blog) {
-        iBlogRepository.delete(blog );
+        iBlogRepository.delete(blog);
     }
 }

@@ -1,2 +1,4 @@
-package form.controller;public class UserController {
+package form.controller;
+
+public class UserController {
 }

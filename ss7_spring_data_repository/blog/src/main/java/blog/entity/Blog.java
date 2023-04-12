@@ -12,7 +12,7 @@ public class Blog {
     private String content;
     private String time;
     private String image;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "categoryId",referencedColumnName = "categoryId")
     private Category category;
 

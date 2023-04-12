@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class UserService implements IUserService{
-    @Autowired
-    IUserRepository iUserRepository;
+   @Autowired
+   IUserRepository iUserRepository;
     @Override
     public void insert(User user) {
         iUserRepository.save(user);
     }
-
     @Override
     public List<User> findAll() {
         return iUserRepository.findAll();

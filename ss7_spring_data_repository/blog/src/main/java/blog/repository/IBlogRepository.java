@@ -2,13 +2,8 @@ package blog.repository;
 
 
 import blog.entity.Blog;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface IBlogRepository extends JpaRepository<Blog,Integer> {
 
-public interface IBlogRepository {
-    void addNew(Blog blog);
-    List<Blog>findAll();
-    Blog findById(int id);
-    void update(Blog blog);
-    void delete(Blog blog);
 }

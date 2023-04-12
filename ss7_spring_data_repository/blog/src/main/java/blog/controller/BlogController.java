@@ -61,6 +61,7 @@ public class BlogController {
     @GetMapping("/update/{id}")
     public String showUpdate(@PathVariable int id,Model model){
         model.addAttribute("blog",iBlogService.findById(id));
+        model.addAttribute("category",iCategoryService.findAll());
         return "/blog/update";
     }
     @PostMapping("/update")

@@ -29,6 +29,7 @@
     <div class="form-group">
         <label for="exampleInputName">Title</label>
         <input type="text" th:field="*{title}" class="form-control" id="exampleInputName" placeholder="Enter Title" required="required">
+        <input type="hidden" th:field="*{id}">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1" required="required">Content</label>
@@ -41,7 +42,7 @@
     <div class="form-group col-md-4">
         <label class="label_form">Categories</label>
         <span style="color: red">*</span>
-        <select th:field="*{category}"  class="form-control" id="exampleFormControlSelect1" required="required">
+        <select th:field="*{category.categoryId}"  class="form-control" id="exampleFormControlSelect1" required="required">
             <option th:each="c :${category}" th:text="${c.categoryName}" th:value="${c.categoryId}"></option>
         </select>
     </div>

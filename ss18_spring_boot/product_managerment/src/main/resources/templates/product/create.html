@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form action="/product/create" method="post" th:object="${product}">
+    <div class="form-group">
+        <label for="exampleInputEmail2">Name</label>
+        <input type="text" th:field="*{name}" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail2">Price</label>
+        <input type="text" th:field="*{price}" class="form-control" id="exampleInputEmail23" aria-describedby="emailHelp" placeholder="Enter Price">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail2">Describe</label>
+        <input type="text" th:field="*{describer}" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="Enter Describe">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail2">Producer</label>
+        <input type="text" th:field="*{producer}" class="form-control" id="exampleInputEmail43" aria-describedby="emailHelp" placeholder="Enter Producer">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

@@ -1,13 +1,7 @@
 package blog.repository;
 
 import blog.entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface ICategoryRepository extends JpaRepository<Category,Integer> {
 
-import java.util.List;
-
-public interface ICategoryRepository {
-    void addNew(Category category);
-    List<Category>findAll();
-    void delete(Category category);
-    Category findById(int id);
-    void update(Category category);
 }
