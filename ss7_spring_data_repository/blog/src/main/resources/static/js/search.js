@@ -11,17 +11,17 @@ function search() {
         dataType: "json",
         success: function(data) {
         let resultHtml = '';
-            // hiển thị kết quả tìm kiếm trên trang web
+
             for (let i = 0; i < data.length; i++) {
                 resultHtml +=
                 `
-                <li>
+                <div>
 //                resultHtml += "<a><img src=\"/getImg/" + blog.image + "\" ></a>";
-                 <span> + ${data[i].title} + "/span>
+                 <span> + ${data[i].title} + </span>
                  <span> + ${data[i].content} + </span>
                  <span> + ${data[i].category.categoryName} + </span>
                  <span> + ${data[i].time} + </span>
-                 </li>
+                 </div>
                 `
             }
             $("#result").html(resultHtml);

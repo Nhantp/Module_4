@@ -1,4 +1,4 @@
-package blog.service;
+package blog.service.impl;
 
 import blog.entity.User;
 import blog.entity.UserRole;
@@ -24,7 +24,7 @@ public class ServerDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = iUserRepository.findByUserName(username);
+        User user = iUserRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User " + username + "not found");
         }

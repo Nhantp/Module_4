@@ -1,41 +1,52 @@
-package product_manager.controller;
+package shopping_cart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import product_manager.model.Product;
-import product_manager.service.IProductService;
+import shopping_cart.model.Cart;
+import shopping_cart.model.Product;
+import shopping_cart.service.IProductService;
+
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/product")
+@SessionAttributes("cart")
 public class ProductController {
     @Autowired
     IProductService iProductService;
 
-    @GetMapping("list")
+    @ModelAttribute("cart")
+    public Cart setupCart() {
+        return new Cart();
+    }
+
+    @GetMapping("/shop")
     public String display(Model model){
         model.addAttribute("products",iProductService.findAll());
-        return "product/list";
+        return "product/shop";
     }
-    @GetMapping("create")
-    public String showCreate(Model model){
-        model.addAttribute("product",new Product());
-        return "product/create";
+    @GetMapping("check/{id}")
+    public String showCheck(@PathVariable Long id, Model model){
+        model.addAttribute("products",iProductService.findById(id));
+        return "product/check";
     }
-    @PostMapping("create")
-    public String doCreate(@ModelAttribute(name = "product") Product product){
-        iProductService.save(product);
-        return "redirect:/product/list";
-    }
-    @GetMapping("update/{id}")
-    public String showUpdate(Model model,@PathVariable int id){
-        model.addAttribute("product",iProductService.findById(id));
-        return "product/update";
-    }
-    @PostMapping("update")
-    public String doUpdate(@ModelAttribute(name = "product")Product product){
-        iProductService.update(product);
-        return "redirect:/product/list";
+
+    @GetMapping("/add/{id}")
+    private String addToCart(@PathVariable("id") Product product,
+                             @ModelAttribute("cart") Cart cart,
+                             @RequestParam("action") String action) {
+        if (product == null) {
+            return "error.404";
+        }
+        if (action.equals("show")) {
+            cart.addProduct(product);
+            return "redirect:/shopping-cart";
+        } else if (action.equals("info")) {
+            cart.addProduct(product);
+            return "redirect:/info/" + product.getId();
+        }
+        cart.addProduct(product);
+        return "redirect:/shop";
     }
 }

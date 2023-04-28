@@ -17,23 +17,27 @@ import java.nio.file.Paths;
 
 @Controller
 public class ImgUploadController {
-    @RequestMapping(value = "getImg/{img}" , method = RequestMethod.GET)
+    @RequestMapping(value = "getImg/{img}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ByteArrayResource> getImg(@PathVariable("img") String img){
-        if (!img.equals("") || img != null){
-            try{
-                Path fileName = Paths.get("upload",img);
-                byte[] buffer = Files.readAllBytes(fileName);
-                ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
-                return ResponseEntity.ok()
-                        .contentLength(buffer.length)
-                        .contentType(MediaType.parseMediaType("image/png"))
-                        .body(byteArrayResource);
+    public ResponseEntity<ByteArrayResource> getImg(@PathVariable("img") String img) {
+        if (img != null && !img.isEmpty()) {
+            try {
+                Path fileName = Paths.get("upload", img);
+                if (Files.exists(fileName)) {
+                    byte[] buffer = Files.readAllBytes(fileName);
+                    ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
+                    return ResponseEntity.ok()
+                            .contentLength(buffer.length)
+                            .contentType(MediaType.parseMediaType("image/png"))
+                            .body(byteArrayResource);
+                } else {
+                    return ResponseEntity.notFound().build();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         return ResponseEntity.badRequest().build();
     }
-
 }
+

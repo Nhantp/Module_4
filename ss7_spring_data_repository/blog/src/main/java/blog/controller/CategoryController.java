@@ -5,10 +5,7 @@ import blog.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/category")
@@ -30,6 +27,23 @@ public class CategoryController {
     @PostMapping("/create")
     public String doCreate(@ModelAttribute(name = "category") Category category){
         iCategoryService.addNew(category);
+        return "redirect:/blog/create";
+    }
+    @GetMapping("delete")
+    public String deleteCategory(@RequestParam(name = "id") Integer id){
+        Category category=iCategoryService.findById(id);
+        iCategoryService.delete(category);
+        return "redirect:/category/list";
+    }
+    @GetMapping("update")
+    public String showUpdate(@RequestParam(name = "id") Integer id, Model model){
+        model.addAttribute("category",iCategoryService.findById(id));
+        return "category/update";
+    }
+    @PostMapping("update")
+    public String doUpdate(@ModelAttribute(name = "category")Category category) {
+        iCategoryService.update(category);
         return "redirect:/category/list";
     }
 }
+

@@ -1,7 +1,7 @@
-package product_manager.repository;
+package shopping_cart.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import product_manager.model.Product;
+import shopping_cart.model.Product;
 
-public interface IProductRepository extends JpaRepository<Product,Integer> {
+public interface IProductRepository extends JpaRepository<Product,Long> {
 }

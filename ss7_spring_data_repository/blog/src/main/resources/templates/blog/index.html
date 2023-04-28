@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+        <div >Search</div>
+        <div >
+            <div>
+                <label for="searchAll">Name</label>
+                <input type="text" th:value="${searchAll}"  placeholder="Name" id="searchAll" name="searchAll   ">
+            </div>
+            <button type="submit" onclick="search();">Search</button>
+        </div>
+<table border="1">
+    <tr>
+        <th>title</th>
+        <th>content</th>
+        <th>category</th>
+        <th>time</th>
+    </tr>
+    <tbody id="result"></tbody>
+</table>
 </body>
+<script src="/js/search.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>

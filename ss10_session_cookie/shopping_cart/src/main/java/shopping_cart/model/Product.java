@@ -1,34 +1,30 @@
-package product_manager.model;
+package shopping_cart.model;
 
 import javax.persistence.*;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private double price;
-    private String describer;
-    private String producer;
+    private String description;
 
     public Product() {
     }
 
-    public Product(int id, String name, double price, String describer, String producer) {
-        this.id = id;
+    public Product(String name, double price, String description) {
         this.name = name;
         this.price = price;
-        this.describer = describer;
-        this.producer = producer;
+        this.description = description;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,19 +44,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescriber() {
-        return describer;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriber(String describer) {
-        this.describer = describer;
-    }
-
-    public String getProducer() {
-        return producer;
-    }
-
-    public void setProducer(String producer) {
-        this.producer = producer;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

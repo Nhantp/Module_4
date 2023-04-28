@@ -1,29 +1,55 @@
-<!doctype html>
+<!--<!doctype html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Title</title>-->
+<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div th:each="p: ${products}">-->
+<!--  <div class="card" style="width: 18rem;">-->
+<!--    <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--    <div class="card-body">-->
+<!--      <h5 class="card-title">Card title</h5>-->
+<!--    </div>-->
+<!--    <ul class="list-group list-group-flush">-->
+<!--      <li class="list-group-item" th:text="${p.name}"></li>-->
+<!--      <li class="list-group-item" th:text="${p.price}"></li>-->
+<!--    </ul>-->
+<!--    <a th:href="@{/add/__${p.id}__(action='list')}" class="btn btn-primary">Buy</a>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Shop</title>
 </head>
 <body>
-
-<div th:each="p: ${products}">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" th:text="${p.name}"></li>
-      <li class="list-group-item" th:text="${p.price}"></li>
-    </ul>
-    <a th:href="@{/add/__${p.id}__(action='list')}" class="btn btn-primary">Buy</a>
-  </div>
-</div>
+<p>
+    <a href="/shopping-cart">Your cart</a>
+</p>
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Add To Cart</td>
+    </tr>
+    <th:block th:each="product:${products}">
+        <tr>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td><a th:href="@{/add/__${product.id}__(action='list')}">Add To Cart</a></td>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>

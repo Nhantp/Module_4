@@ -2,8 +2,6 @@ package blog.service;
 
 import blog.entity.UserRole;
 
-import java.util.List;
-
-public interface IRoleUserService {
-    void addUserRole(UserRole userRole);
+public interface IUserRoleService {
+    void save(UserRole userRole);
 }

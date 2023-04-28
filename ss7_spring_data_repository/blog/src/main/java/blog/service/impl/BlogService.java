@@ -1,8 +1,9 @@
-package blog.service;
+package blog.service.impl;
 
 import blog.entity.Blog;
 import blog.entity.Category;
 import blog.repository.ICategoryRepository;
+import blog.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class BlogService implements IBlogService{
+public class BlogService implements IBlogService {
     @Autowired
     IBlogRepository iBlogRepository;
    @Autowired
@@ -50,9 +51,14 @@ public class BlogService implements IBlogService{
         iBlogRepository.delete(blog);
     }
 
+//    @Override
+//    public List<Blog> findAllByCategory_CategoryNameContaining(String category) {
+//        return iBlogRepository.findAllByCategory_CategoryNameContaining(category);
+//    }
+
     @Override
-    public List<Blog> findAllByCategory_CategoryNameContaining(String category) {
-        return iBlogRepository.findAllByCategory_CategoryNameContaining(category);
+    public Slice<Blog> findAllByCategory_CategoryNameContainingOrTitleContainingOrContentContainingOrTimeContaining(String categoryName, String title, String content, String time, Pageable pageable) {
+        return iBlogRepository.findAllByCategory_CategoryNameContainingOrTitleContainingOrContentContainingOrTimeContaining(categoryName,title,content,time,pageable);
     }
 
     @Override
@@ -65,11 +71,11 @@ public class BlogService implements IBlogService{
         return iBlogRepository.findAll(pageable);
     }
 
-    @Override
-    public List<Blog> SortByTime() {
-        Sort sort=Sort.by("time").ascending();
-        return iBlogRepository.findAll(sort);
-    }
+//    @Override
+//    public Slice<Blog> SortByTime() {
+//        Sort sort=Sort.by("time").ascending();
+//        return iBlogRepository.findAll(sort);
+//    }
 
 //    @Override
 //    public List<Blog> getBlogsByOrder(String order) {
