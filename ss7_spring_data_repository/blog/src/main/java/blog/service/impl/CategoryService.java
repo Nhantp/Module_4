@@ -1,6 +1,7 @@
 package blog.service;
 
 import blog.entity.Category;
+import blog.repository.IBlogRepository;
 import blog.repository.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,8 @@ import java.util.List;
 public class CategoryService implements ICategoryService{
     @Autowired
     ICategoryRepository iCategoryRepository;
+    @Autowired
+    IBlogRepository iBlogRepository;
 
     @Override
     public void addNew(Category category) {
@@ -35,4 +38,5 @@ public class CategoryService implements ICategoryService{
     public void update(Category category) {
         iCategoryRepository.save(category);
     }
+
 }
