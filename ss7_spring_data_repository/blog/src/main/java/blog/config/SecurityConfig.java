@@ -36,8 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-//        // Đăng ký những pattern
-//        http.authorizeRequests().antMatchers("/login").permitAll();
+////        // Đăng ký những pattern
+//        http.authorizeRequests().antMatchers("/login","/register").permitAll();
 //        // Đăng ký những pattern phải login với quyền user hoặc admin mới được truy cập
 //        http.authorizeRequests().antMatchers("/blog", "/blog/create","/category/create").access("hasAnyRole('ROLE_USER','ROLE_ADMIN')").anyRequest().denyAll();
 //        // Đăng ký những pattern phải login với quyền admin mới được truy cập
@@ -46,20 +46,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/deny");
 //        // Trường hợp user chưa đăng nhập truy cập những pattern cần quyền thì phải chuyển sang trang login
 //        http.authorizeRequests().and().formLogin().loginPage("/login").defaultSuccessUrl("/blog").permitAll();
+//
 
-        http
-                .authorizeRequests()
-                .antMatchers("/blog", "/blog/create","/blog/search/**","/category/create","/blog/**").access("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
-                .anyRequest().denyAll()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/blog")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll();
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/login","/register").permitAll()
+//                .antMatchers("/blog", "/blog/create","/blog/search/**","/category/create","/blog/**").access("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+//                .anyRequest().denyAll()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/blog")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutUrl("/logout")
+//                .logoutSuccessUrl("/")
+//                .permitAll();
     }
 }

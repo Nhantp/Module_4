@@ -69,7 +69,7 @@
   </svg>
   <span style="font-size: 30px"><b> Welcome To Blog</b></span>
   <h1>Create New Blog</h1>
-  <form  action="/blog/create" method="post" th:object="${blog}" enctype="multipart/form-data" id="myForm">
+  <form  th:action="@{/blog/create}" method="post" th:object="${blog}" enctype="multipart/form-data" id="myForm">
     <div class="form-group">
       <label for="title"><b>Title</b></label>
       <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="Enter title" required="required">

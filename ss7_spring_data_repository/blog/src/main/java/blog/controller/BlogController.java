@@ -25,7 +25,7 @@ import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/blog")
-public class    BlogController {
+public class BlogController {
     @Autowired
     IBlogService iBlogService;
     @Autowired
@@ -62,7 +62,7 @@ public class    BlogController {
 
         blog.setTime(String.valueOf(today));
         iBlogService.addNew(blog);
-        return "redirect:/blog/index";
+        return "redirect:/blog/";
     }
     @GetMapping("/update")
     public String showUpdate(@RequestParam(name = "id") Integer id,Model model){
@@ -76,7 +76,7 @@ public class    BlogController {
         blog.setTime(String.valueOf(today));
         iBlogService.update(blog);
 
-        return "redirect:/blog/list";
+        return "redirect:/blog/";
     }
     @GetMapping("/delete")
     public String delete(@RequestParam(name = "id") Integer id){
@@ -84,35 +84,30 @@ public class    BlogController {
         iBlogService.delete(blog);
         return "redirect:/blog/list";
     }
-//    @GetMapping("/search")
-//    public String search(@RequestParam(name = "searchAll") String searchAll ,
-//                         @RequestParam(name = "page") Optional<Integer>page,
-//                         @RequestParam(name = "size") Optional<Integer> size,Model model){
-//        int currentPage=page.orElse(1);
-//        int pageSize=size.orElse(4);
+    @GetMapping("/search")
+    public String search(@RequestParam(name = "searchAll") String searchAll ,
+                         @RequestParam(name = "page") Optional<Integer>page,
+                         @RequestParam(name = "size") Optional<Integer> size,Model model){
+        int currentPage=page.orElse(1);
+        int pageSize=size.orElse(2);
+        model.addAttribute("searchAll",searchAll);
 //        Sort sortBy = Sort.by("time").descending().and(Sort.by("title").ascending());
-//        Slice<Blog>blog=iBlogService.findAllWithSlice(PageRequest.of(currentPage-1,pageSize,sortBy));
-//        Slice<Blog>search=iBlogService.findAllByCategory_CategoryNameContainingOrTitleContainingOrContentContainingOrTimeContaining(searchAll,searchAll,searchAll,searchAll, PageRequest.of(currentPage-1,pageSize,sortBy));
-//        model.addAttribute("blog",blog.getContent());
-//        model.addAttribute("page",blog);
-//        model.addAttribute("blog",search);
-//        return "/blog/list";
-//    }
+        Slice<Blog>blog=iBlogService.findAllByCategory_CategoryNameContainingOrTitleContainingOrContentContainingOrTimeContaining(searchAll,searchAll,searchAll,searchAll, PageRequest.of(currentPage-1,pageSize));
+        model.addAttribute("blog",blog.getContent());
+        model.addAttribute("page",blog);
+        return "/blog/list";
+    }
     @GetMapping(value = {"","/"})
     public String paging(@RequestParam(name = "page") Optional<Integer>page,
                          @RequestParam(name = "size") Optional<Integer> size,
                          @RequestParam("sort") Optional<String> sort ,Model model){
         int currentPage=page.orElse(1);
-        int pageSize=size.orElse(4);
+        int pageSize=size.orElse(2);
         Sort sortBy = Sort.by("time").descending().and(Sort.by("title").ascending());
-        Slice<Blog>blog=iBlogService.findAllWithSlice(PageRequest.of(currentPage-1,pageSize,sortBy));
+        Slice<Blog>blog=iBlogService.findAllWithSlice(PageRequest.of(currentPage-1,pageSize));
         model.addAttribute("blog",blog.getContent());
         model.addAttribute("page",blog);
         return "/blog/list";
-    }
-    @GetMapping("list")
-    public String list(){
-        return "blog/index";
     }
 //    @GetMapping("sort")
 //    public String sort(@RequestParam(name = "page") Optional<Integer>page,

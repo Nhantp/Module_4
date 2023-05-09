@@ -5,14 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-        <div >Search</div>
-        <div >
-            <div>
-                <label for="searchAll">Name</label>
-                <input type="text" th:value="${searchAll}"  placeholder="Name" id="searchAll" name="searchAll   ">
-            </div>
-            <button type="submit" onclick="search();">Search</button>
-        </div>
+
+<input type="search"  placeholder="Search" aria-label="Search" id="searchAll" name="searchAll">
+<button type="submit" onclick="search();">Search</button>
 <table border="1">
     <tr>
         <th>title</th>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<button id="increase-quantity-btn" data-product-id="1">Increase Quantity</button>
+
+<input id="product-quantity" type="text" value="1" />
+
+<div id="total-price"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('#increase-quantity-btn').on('click', function() {
+    var productId = $(this).data('product-id');
+    var newQuantity = parseInt($('#product-quantity').val()) + 1;
+
+    $.ajax({
+      url: 'http://localhost:8080/api/v2/product/update-total',
+      method: 'POST',
+      data: { productId: productId, newQuantity: newQuantity },
+      success: function(response) {
+        $('#total-price').text(response);
+      }
+    });
+  });
+</script>
+
+<!-- Optional JavaScript -->
+</body>
+</html>

@@ -153,19 +153,25 @@
 
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search" id="searchAll"
-                   name="searchAll">
-            <!--                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>-->
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="search();">Search</button>
-        </form>
+                <div class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" id="searchAll" aria-label="Search" name="searchAll">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="search();">Search</button>
+                </div>
+        <div class="form-inline my-2 my-lg-0">
+            <form th:action="@{/blog/search}" th:object="${blog}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                       name="searchAll">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search1</button>
+            </form>
+        </div>
     </div>
 </nav>
 
 
 <!--Content-->
 <div class="page-timeline">
-        <div id="result" class="vtimeline-block" th:each="b: ${blog}" style="margin-bottom: 50px">
+    <div id="result">
+        <div class="vtimeline-block" th:each="b: ${blog}" style="margin-bottom: 50px">
             <div class="vtimeline-content">
                 <!--            <a href="#"><img th:src="@{'/getImg/'+${b.image}}" alt="" class="img-fluid mb20"></a>-->
                 <br>
@@ -225,10 +231,11 @@
                 <a href="#" class="btn btn-outline-secondary btn-sm">Read More</a>
             </div>
         </div>
+    </div>
 </div>
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-        <li class="page-item" th:if="${page.hasPrevious()||(page.getNumber()>1)}"><a class="page-link"
+        <li class="page-item" th:if="${page.hasPrevious() or page.getNumber() > 1}"><a class="page-link"
                                                                                      th:href="@{/blog(size=${page.size}, page=1)}">First</a>
         </li>
         <li class="page-item"><a class="page-link" th:if="${page.hasPrevious()}"
@@ -242,24 +249,22 @@
                                  th:href="@{/blog(size=${page.size}, page=${page.getNumber() + 2})}"
                                  th:text="${page.getNumber() + 2}"></a></li>
         <li class="page-item" th:if="${page.hasNext()}"><a class="page-link"
-                                                           th:href="@{/blog/(size=${page.size}, page=${page.getTotalPages()})}">Last</a>
+                                                           th:href="@{/blog(size=${page.size}, page=${page.getTotalPages()})}">Last</a>
         </li>
     </ul>
+
 </nav>
 <script type="text/javascript">
     function gotoUrl(url) {
         window.location.href = url;
     }
 
+
 </script>
 
 <script src="/js/search.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

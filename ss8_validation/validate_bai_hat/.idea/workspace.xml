@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="959f2ab1-70b4-4821-b4ed-3b41a745531a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../validate_music_app/src/main/java/validate_music/ValidateBaiHatApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_music_app/src/main/java/validate_music/ValidateMusicAppApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/java/product/validate/ProductValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/resources/templates/fragments/nav.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/resources/templates/product/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ontap/product/src/main/resources/templates/product/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/java/shopping_cart/controller/ProductRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/resources/templates/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss18_spring_boot/demo/src/main/resources/templates/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/template/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/java/shopping_cart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/java/shopping_cart/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/resources/templates/check-products.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_session_cookie/shopping/shopping-cart/src/main/resources/templates/check-products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/BlogResController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/java/blog/controller/BlogRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/static/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/static/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_spring_data_repository/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validate_music_app/src/main/java/validate_music/validate/MusicValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_music_app/src/main/java/validate_music/validate/MusicValidate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +72,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Codegym/A05/Module_4/ss8_validation/validate_music_app&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f71f33345b50432008263ca6b6183ad8&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "D:/Codegym/A05/Module_4/ss8_validation/form_user",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "spring.configuration.checksum": "f71f33345b50432008263ca6b6183ad8"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ValidateBaiHatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="validate_bai_hat.main" />
@@ -88,6 +121,7 @@
       <workItem from="1681292216258" duration="154000" />
       <workItem from="1681292440003" duration="111000" />
       <workItem from="1681292572063" duration="217000" />
+      <workItem from="1683536409673" duration="784000" />
     </task>
     <servers />
   </component>

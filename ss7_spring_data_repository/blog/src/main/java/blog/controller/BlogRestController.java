@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v2/blog")
-public class BlogResController {
+public class BlogRestController {
     @Autowired
     IBlogService iBlogService;
 

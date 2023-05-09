@@ -1,0 +1,47 @@
+<style>
+    nav{
+        width: 100%;
+        margin-top: -22px;
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+</style>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" th:href="@{/product/list}">My Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/product/list}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Service
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" th:href="@{/product/create}">Add New Blog</a>
+                    <a class="dropdown-item" th:href="@{/category/create}">Add New Category</a>
+                    <a class="dropdown-item" th:href="@{/category/list}">Display CategoryList</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="form-inline my-2 my-lg-0">
+            <form th:action="@{/product/search}" th:object="${products}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                       name="searchAll">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

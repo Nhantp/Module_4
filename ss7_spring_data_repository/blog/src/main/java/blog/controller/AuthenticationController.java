@@ -32,12 +32,12 @@ public class AuthenticationController {
     IUserRoleService iUserRoleService;
     Role role;
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public String showRegister(Model model) {
         model.addAttribute("user",new User());
         return "/register";
     }
-    @PostMapping("register")
+    @PostMapping("/register")
     public String doRegister(@ModelAttribute("user") User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));

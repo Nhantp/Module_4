@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Display Product List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Amarante');
+
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        outline: none;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-y: scroll;
+    }
+
+    body {
+        background: #eee url('https://i.imgur.com/eeQeRmk.png'); /* https://subtlepatterns.com/weave/ */
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 67%;
+        line-height: 1;
+        color: #585858;
+        padding: 22px 10px;
+        padding-bottom: 55px;
+    }
+
+    ::selection {
+        background: #5f74a0;
+        color: #fff;
+    }
+
+    ::-moz-selection {
+        background: #5f74a0;
+        color: #fff;
+    }
+
+    br {
+        display: block;
+        line-height: 1.6em;
+    }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    input, textarea {
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    blockquote, q {
+        quotes: none;
+    }
+
+    blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+    strong, b {
+        font-weight: bold;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    img {
+        border: 0;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-family: 'Amarante', Tahoma, sans-serif;
+        font-weight: bold;
+        font-size: 5em;
+        line-height: 1.7em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    #wrapper {
+        display: block;
+        width: 1100px;
+        background: #fff;
+        margin: 0 auto;
+        padding: 10px 17px;
+        -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35);
+    }
+
+    #keywords {
+        margin: 0 auto;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+
+    #keywords thead {
+        cursor: pointer;
+        background: #c9dff0;
+    }
+
+    #keywords thead tr th {
+        font-weight: bold;
+        padding: 12px 30px;
+        padding-left: 42px;
+    }
+
+    #keywords thead tr th span {
+        padding-right: 20px;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+    }
+
+    #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+        background: #acc8dd;
+    }
+
+    #keywords thead tr th.headerSortUp span {
+        background-image: url('https://i.imgur.com/SP99ZPJ.png');
+    }
+
+    #keywords thead tr th.headerSortDown span {
+        background-image: url('https://i.imgur.com/RkA9MBo.png');
+    }
+
+
+    #keywords tbody tr {
+        color: #555;
+    }
+
+    #keywords tbody tr td {
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    #keywords tbody tr td.lalign {
+        text-align: left;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+    body {
+        font-family: 'Open Sans', 'sans-serif';
+        background-image: url(http://benague.ca/files/pw_pattern.png);
+    }
+
+    h1 {
+        color: #55acee;
+        text-align: center;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #55acee;
+        border-bottom: 2px dotted #55acee;
+        transition: .3s;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -o-transition: .3s;
+        cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+    }
+
+    .link:hover {
+        color: #2ecc71;
+        border-bottom: 2px dotted #2ecc71;
+    }
+
+    #buttons {
+        text-align: center;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 6px 10px;
+        font-size: 15px;
+        text-decoration: none;
+        margin: 5px;
+        color: #fff;
+        position: relative;
+        display: inline-block;
+    }
+
+    .btn:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px;
+    }
+
+    .blue {
+        background-color: #55acee;
+        box-shadow: 0px 5px 0px 0px #3C93D5;
+    }
+
+    .blue:hover {
+        background-color: #6FC6FF;
+    }
+
+    .green {
+        background-color: #2ecc71;
+        box-shadow: 0px 5px 0px 0px #15B358;
+    }
+
+    .green:hover {
+        background-color: #48E68B;
+    }
+
+    .red {
+        background-color: #e74c3c;
+        box-shadow: 0px 5px 0px 0px #CE3323;
+    }
+
+    .red:hover {
+        background-color: #FF6656;
+    }
+
+    p {
+        text-align: center;
+        color: #55acee;
+        padding-top: 20px;
+    }
+</style>
+<body>
+<nav th:replace="fragments/nav"></nav>
+<div id="wrapper">
+    <h1>Display Products List</h1>
+
+    <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Price</span></th>
+            <th><span>Quantity</span></th>
+            <th><span>Color</span></th>
+            <th><span>Category</span></th>
+            <th><span>Function</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p: ${products}">
+            <td th:text="${p.productId}"></td>
+            <td th:text="${p.productName}"></td>
+            <td th:text="${p.price}"></td>
+            <td th:text="${p.quantity}"></td>
+            <td th:text="${p.description}"></td>
+            <td th:text="${p.category.categoryName}"></td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete Product</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this product?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a th:href="@{/product/delete(productId=${p.productId})}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+                    Update
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="updateModalLabel">Confirm Update Product</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to update this product?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a th:href="@{/product/update(productId=${p.productId})}" class="btn btn-primary">Update</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:if="${page.hasPrevious() or page.getNumber() > 1}"><a class="page-link"
+                                                                                           th:href="@{/product(size=${page.size}, page=1)}">First</a>
+            </li>
+            <li class="page-item"><a class="page-link" th:if="${page.hasPrevious()}"
+                                     th:href="@{/product(size=${page.size}, page=${page.getNumber()})}"
+                                     th:text="${page.getNumber()}"></a>
+            </li>
+            <li class="page-item"><a class="page-link" th:if="${page.hasNext() || page.hasPrevious()}"
+                                     th:href="@{/product/search(searchAll=${searchAll},size=${page.size}, page=${page.getNumber() + 1})}"
+                                     th:text="${page.getNumber() + 1}"></a></li>
+            <li class="page-item"><a class="page-link" th:if="${page.hasNext()}"
+                                     th:href="@{/product/search(searchAll=${searchAll},size=${page.size}, page=${page.getNumber() + 2})}"
+                                     th:text="${page.getNumber() + 2}"></a></li>
+            <li class="page-item" th:if="${page.hasNext()}"><a class="page-link"
+                                                               th:href="@{/product(size=${page.size}, page=${page.getTotalPages()})}">Last</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+
+</html>
